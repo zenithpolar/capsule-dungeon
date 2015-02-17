@@ -21,11 +21,13 @@ class MoveableObject(object):
         self.y += dy
         
     def draw (self):
-        libtcod.console_set_default_foreground(0, self.color)
+        libtcod.console_set_default_foreground(self.con, self.color)
         libtcod.console_put_char(self.con, self.x, self.y, self.char, libtcod.BKGND_NONE)
+        #libtcod.console_blit(self.con, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, self.target_con, 0, 0)
 
     def clear(self):
         libtcod.console_put_char(self.con, self.x, self.y, ' ', libtcod.BKGND_NONE)
+        #libtcod.console_blit(self.con, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, self.target_con, 0, 0)
     
     @staticmethod
     def drawAll():
